@@ -1,2 +1,1 @@
-Submission Challenge 6
-- Binar Academy -
+## Submission Challenge 6 for Binar Academy
