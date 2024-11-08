@@ -1,0 +1,43 @@
+name: Deploy code to GCE
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: 'Checkout code'
+      uses: 'actions/checkout@v2'
+
+    - name: 'Authenticate with GCP'
+      id: auth
+      uses: 'google-github-actions/auth@v2'
+      with:
+        project_id: 'binar-project-441108'
+        workload_identity_provider: 'projects/469833925357/locations/global/workloadIdentityPools/github-action-provider/providers/github-action-provider'
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+
+    - name: 'Start Compute Engine Instance'
+      run: |
+        gcloud compute instances start aldy-artworks --zone=asia-southeast2-b
+
+    - name: 'Deploy Application with PM2'
+      run: |
+        gcloud compute ssh aldy-artworks --zone=asia-southeast2-b --command "
+          cd binar-project/crud-artworks &&
+          git pull origin main &&
+          npm install &&
+          pm2 reload your-app-name --update-env
+        "
