@@ -50,6 +50,6 @@ jobs:
             git pull origin main &&
             cd 24001200-km7-ald-artworks-ch6 &&
             npm install &&
-            pm2 reload app.js --update-env
+            pm2 start app.js --update-env || pm2 reload app.js --update-env
             '
         "
