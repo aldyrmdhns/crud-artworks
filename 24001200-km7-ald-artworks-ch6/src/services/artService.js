@@ -72,7 +72,7 @@ const updateArtworksService = async (id, data, file) => {
 			// console.log("-> at file part 2: ",updatedData);
 		}
 
-		console.log(updatedData);
+		// console.log(updatedData);
 
 		const updateArt = await prisma.art_images.update({
 			where: { id: parseInt(id) },
