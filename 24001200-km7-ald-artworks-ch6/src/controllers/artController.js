@@ -113,6 +113,15 @@ const updateArt = async (req, res, next) => {
 			});
 		}
 
+		const checkId = await getArtworksByIdService(req.params.artId);
+		console.log(checkId);
+		
+		if (!checkId) {
+			const error = new Error("There's no Such Art!");
+			error.statusCode = 400;
+			throw error;
+		}
+
 		if (!req.body || !req.file) {
 			const error = new Error(
 				"Failed To Upload The Art, Make Sure To at least fill one Form!!!"
