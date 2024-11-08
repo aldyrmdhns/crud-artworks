@@ -46,9 +46,9 @@ jobs:
       run: |
         gcloud compute ssh aldy-artworks --zone=asia-southeast2-b --command "
           sudo su -c '
-            cd binar-project/crud-artworks &&
+            cd ~/binar-project/crud-artworks &&
             git pull origin main &&
             npm install &&
-            pm2 reload your-app-name --update-env
+            pm2 reload app.js --update-env
             '
         "
