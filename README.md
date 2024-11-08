@@ -1,9 +1,5 @@
 ## Submission Challenge 6 for Binar Academy
 
-# Art Upload API
-
-This API allows you to upload, retrieve, update, and delete artwork.
-
 ## Base URL
 34.101.244.5:9090/api/v1
 
