@@ -68,6 +68,16 @@ const getArt = async (req, res, next) => {
 
 const getArtById = async (req, res, next) => {
 	try {
+		const artId = req.params.artId;
+		const isValidNumber = !isNaN(artId) && !isNaN(parseInt(artId));
+
+		if (!isValidNumber) {
+			return res.status(400).json({
+				status: "Failed",
+				message: "id should be a number!!!"
+			});
+		}
+
 		const art = await getArtworksByIdService(req.params.artId);
 
 		if (!art) {
@@ -93,6 +103,16 @@ const getArtById = async (req, res, next) => {
 
 const updateArt = async (req, res, next) => {
 	try {
+		const artId = req.params.artId;
+		const isValidNumber = !isNaN(artId) && !isNaN(parseInt(artId));
+
+		if (!isValidNumber) {
+			return res.status(400).json({
+				status: "Failed",
+				message: "id should be a number!!!"
+			});
+		}
+
 		if (!req.body || !req.file) {
 			const error = new Error(
 				"Failed To Upload The Art, Make Sure To at least fill one Form!!!"
@@ -133,6 +153,16 @@ const updateArt = async (req, res, next) => {
 
 const deleteArt = async (req, res, next) => {
 	try {
+		const artId = req.params.artId;
+		const isValidNumber = !isNaN(artId) && !isNaN(parseInt(artId));
+
+		if (!isValidNumber) {
+			return res.status(400).json({
+				status: "Failed",
+				message: "id should be a number!!!"
+			});
+		}
+
 		const art = await deleteArtworksService(req.params.artId);
 
 		if (!art) {
