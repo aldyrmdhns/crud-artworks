@@ -33,10 +33,18 @@ jobs:
       run: |
         gcloud compute instances start aldy-artworks --zone=asia-southeast2-b
 
+    - name: Add SSH key to agent
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        eval $(ssh-agent -s)
+        ssh-add ~/.ssh/id_rsa
+
     - name: 'Deploy Application with PM2'
       run: |
         gcloud compute ssh aldy-artworks --zone=asia-southeast2-b --command "
-          cd /binar-project/crud-artworks &&
+          cd binar-project/crud-artworks &&
           git pull origin main &&
           npm install &&
           pm2 reload your-app-name --update-env
