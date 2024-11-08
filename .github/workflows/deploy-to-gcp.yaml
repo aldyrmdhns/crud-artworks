@@ -36,7 +36,7 @@ jobs:
     - name: 'Deploy Application with PM2'
       run: |
         gcloud compute ssh aldy-artworks --zone=asia-southeast2-b --command "
-          cd binar-project/crud-artworks &&
+          cd /binar-project/crud-artworks &&
           git pull origin main &&
           npm install &&
           pm2 reload your-app-name --update-env
