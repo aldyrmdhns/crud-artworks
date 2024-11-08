@@ -112,12 +112,6 @@ const updateArt = async (req, res, next) => {
 				message: "id should be a number!!!"
 			});
 		}
-		
-		if (!artId) {
-			const error = new Error("There's no Such Art!");
-			error.statusCode = 400;
-			throw error;
-		}
 
 		const checkId = await getArtworksByIdService(req.params.artId);
 		console.log(checkId);
