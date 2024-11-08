@@ -10,6 +10,10 @@ const errorHandler = require("./src/middlewares/errorHandler");
 
 app.use(express.json());
 
+app.use("/", (req, res) => {
+	res.send("Ello, This is just to test the CI/CD Change!");
+});
+
 app.use("/api/v1/arts", route);
 app.use(errorHandler);
 
