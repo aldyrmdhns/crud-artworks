@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "3811a250-be99-404c-b6e2-1f466af369f8",
+		"name": "Artworks-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29694438"
+	},
+	"item": [
+		{
+			"name": "Add new Image - Single",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "firstImage",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is a test image first time with GCE",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Acer/Downloads/uas-landscape.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "34.101.244.5:9090/api/v1/arts/upload",
+					"host": [
+						"34",
+						"101",
+						"244",
+						"5"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"arts",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "34.101.244.5:9090/api/v1/arts",
+					"host": [
+						"34",
+						"101",
+						"244",
+						"5"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"arts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "34.101.244.5:9090/api/v1/arts/1",
+					"host": [
+						"34",
+						"101",
+						"244",
+						"5"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"arts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Art By id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "34.101.244.5:9090/api/v1/arts/1231",
+					"host": [
+						"34",
+						"101",
+						"244",
+						"5"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"arts",
+						"1231"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Art By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "34.101.244.5:9090/api/v1/arts/5",
+					"host": [
+						"34",
+						"101",
+						"244",
+						"5"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"arts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
